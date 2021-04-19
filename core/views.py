@@ -12,5 +12,4 @@ from .forms import ContactForm
 class HomeView(FormView):
     template_name = 'core/home.html'
     form_class = ContactForm
-    print(ContactForm)
     success_url = 'home'

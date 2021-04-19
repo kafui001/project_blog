@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import ContactModelForm
+from .models import ContactModel
 
 # class ContactForm(forms.Form):
 #     first_name= forms.CharField(max_length=500, label="first_name")
@@ -12,7 +12,7 @@ from .models import ContactModelForm
 
 class ContactForm(forms.ModelForm):
     class Meta:
-        model = ContactModelForm
+        model = ContactModel
         fields = ['first_name', 'last_name', 'email', 'message']
         
 
