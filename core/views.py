@@ -3,10 +3,9 @@ from django.views.generic import FormView
 
 from .forms import ContactForm
 
-# Create your views here.
-# def home(request):
-#     print(ContactForm)
-#     return render(request, 'core/home.html',{'form': ContactForm})
+#Create your views here.
+def bloghome(request):
+    return render(request, 'core/bloghome.html')
     
 
 class HomeView(FormView):
