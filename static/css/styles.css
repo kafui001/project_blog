@@ -610,7 +610,7 @@ ul li {
   background-color: #000;
 }
 
-.form-control {
+/* .form-control {
   -webkit-box-shadow: 0 0px 2px 0 rgba(255, 255, 255, 0.16), 0 0px 2px 0 rgba(255, 255, 255, 0.12);
   box-shadow: 0 0px 2px 0 rgba(255, 255, 255, 0.16), 0 0px 2px 0 rgba(255, 255, 255, 0.12);
   background-color: transparent;
@@ -618,13 +618,13 @@ ul li {
   margin-bottom: 20px;
   height: 50px;
   line-height: 50px;
-}
+} */
 
-.form-control:focus {
+/* .form-control:focus {
   -webkit-box-shadow: 0 0px 2px 0 rgba(255, 255, 255, 0.16), 0 0px 2px 0 rgba(255, 255, 255, 0.12);
   box-shadow: 0 0px 2px 0 rgba(255, 255, 255, 0.16), 0 0px 2px 0 rgba(255, 255, 255, 0.12);
   background-color: transparent;
-}
+} */
 
 .p-200 {
   padding: 0 200px;
@@ -700,17 +700,17 @@ button:focus {
   border-radius: 50%;
 }
 
-.form-control {
+/* .form-control {
   padding: 20px;
   -webkit-box-shadow: 0 0px 2px 0 rgba(255, 255, 255, 0.8), 0 0px 1px 1px rgba(255, 255, 255, 0.8);
   box-shadow: 0 0px 2px 0 rgba(255, 255, 255, 0.8), 0 0px 1px 1px rgba(255, 255, 255, 0.8);
-}
+} */
 
-.form-control:focus {
+/* .form-control:focus {
   -webkit-box-shadow: 0 0px 2px 0 rgba(255, 255, 255, 0.8), 0 0px 1px 1px rgba(255, 255, 255, 0.8);
   box-shadow: 0 0px 2px 0 rgba(255, 255, 255, 0.8), 0 0px 1px 1px rgba(255, 255, 255, 0.8);
   border-color: transparent;
-}
+} */
 
 .contact-message {
   -webkit-box-shadow: 0 0px 2px 0 rgba(255, 255, 255, 0.8), 0 0px 1px 1px rgba(255, 255, 255, 0.8);
@@ -840,7 +840,7 @@ button:focus {
 .dark-vertion .img-color-overlay {
   /* background-color: rgba(0, 0, 0, 0.9); */
   /* background-image: url(assets/images/slider/dark-rope-03.jpg); */
-  background-image: url(assets/images/computer-background.jpg);
+  background-image: url(static/images/computer-background.jpg);
 }
 
 .dark-vertion .mh-home .mh-header-info .social-icon li .fa:hover {

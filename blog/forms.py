@@ -7,14 +7,15 @@ choice_list = []
 for item in choices:
     choice_list.append(item)
 
-
+# category_choice = [('Python','Python'),('Django','Django'),('JavaScript','JavaScript')]
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title','content','category']
+        fields = ['title','category','content']
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'post title'}),
-            'content': forms.Textarea(attrs={'class': 'form-control'}),
             'category': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
+            # 'category': forms.Select(choices=category_choice, attrs={'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'class': 'form-control'}),
         }
