@@ -7,9 +7,6 @@ from .models import Post, Category
 from .forms import PostForm
 from core.forms import ContactForm
 
-# Create your views here.
-# def bloghome(request):
-#     return render(request, 'blog/blog_home.html')
 
 class BlogHomeView(ListView):
     model = Post

@@ -29,63 +29,13 @@
         
     </head>
     <body class="white-vertion black-bg">
-        <!--
-        ===================
-           NAVIGATION
-        ===================
-        -->
-        <!-- <header class="black-bg mh-header mh-fixed-nav nav-scroll mh-xs-mobile-nav" id="mh-header">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row">
-                    <nav class="navbar navbar-expand-lg mh-nav nav-btn">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="assets/images/fedalon_logo.png" alt="" class="img-fluid">
-                        --><!-- <h2>Maha</h2> --><!--
-                        </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon icon"></span>
-                        </button>
-                    
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="home-one-w.html#mh-home">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="home-one-w.html#mh-about">About</a>
-                                </li>
-                                <li class="nav-item">
-                                   <a class="nav-link" href="home-one-w.html#mh-skills">Skills</a>
-                                </li>                                
-                                <li class="nav-item">
-                                   <a class="nav-link" href="home-one-w.html#mh-experience">Experiences</a>
-                                </li>                                
-                                <li class="nav-item">
-                                    <a class="nav-link" href="home-one-w.html#mh-portfolio">Portfolio</a>
-                                </li>                               
-                                <li class="nav-item">
-                                    <a class="nav-link" href="home-one-w.html#mh-pricing">Pricing</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="home-one-w.html#mh-blog">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                   <a class="nav-link" href="home-one-w.html#mh-contact">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </header> -->
+
         <header class="black-bg mh-header mh-fixed-nav nav-scroll mh-xs-mobile-nav" id="mh-header">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">
                     <nav class="navbar navbar-expand-lg mh-nav nav-btn">
                         <a class="navbar-brand" href="#">
-                            <!-- <img src="assets/images/fedalon_logo.png" alt="maha" class="img-fluid"> -->
                             <h2>web<span style="text-transform:uppercase;color:#0bceaf;">dairies</span></h2>
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -93,38 +43,11 @@
                             aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon icon"></span>
                         </button>
-        
-                        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-0 ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#mh-home">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#mh-about">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#mh-portfolio">Portfolio</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#mh-blog">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#mh-contact">Contact</a>
-                                </li>
-                            </ul>
-                        </div> -->
                     </nav>
                 </div>
             </div>
         </header>
-        <!--
-        ===================
-            ABOUT 
-        ===================
-        -->
-      
         
-        <!-- home 2 -->
         <section class="mh-home image-bg home-2-img" id="mh-home">
             <div class="img-foverlay img-color-overlay">
                 <div class="container">
@@ -158,7 +81,7 @@
                                                 <li><strong>By</strong><a href="">{{ post.author.first_name }} {{ post.author.last_name }}</a></li>
                                             </ul>
                                         </div>
-                                        <p>{{ post.content }}</p>
+                                        <p>{{ post.content|slice:":150" }}</p>
                                         <a href="">Read More</a>
                                     </div>
                                 </div>
@@ -212,10 +135,8 @@
                                     nesciunt nam dolor veritatis.
                                 </p>
                                 <ul class="social-icon">
-                                    <!-- <li><a href=""><i class="fa fa-facebook"></i></a></li> -->
                                     <li><a href=""><i class="fa fa-linkedin"></i></a></li>
                                     <li><a href=""><i class="fa fa-github"></i></a></li>
-                                    <!-- <li><a href=""><i class="fa fa-dribbble"></i></a></li> -->
                                 </ul>
                             </div>
                             <div class="sidebar-item mh-blog-category">
@@ -226,58 +147,12 @@
                                     {% endfor %}
                                 </ul>
                             </div>
-                            <!--
-                            <div class="sidebar-item mh-blog-category">
-                                <h3>Archive</h3>
-                                <ul>
-                                    <li><a href="">2018 (10)</a></li>
-                                    <li><a href="">Techonology (8)</a></li>
-                                    <li><a href="">Food (6)</a></li>
-                                    <li><a href="">Travel (8)</a></li>
-                                    <li><a href="">Photography (11)</a></li>
-                                </ul>
-                            </div>
-                            <div class="sidebar-item mh-blog-insta">
-                                <h3>Instagram</h3>
-                                <ul>
-                                    <li>
-                                        <a href="">
-                                            <img src="{% static '/images/b-1.png' %}" alt="" class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="{% static '/images/b-1.png' %}" alt="" class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="{% static '/images/b-1.png' %}" alt="" class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="{% static '/images/b-1.png' %}" alt="" class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="{% static '/images/b-1.png' %}" alt="" class="img-fluid">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <img src="{% static '/images/b-1.png' %}" alt="" class="img-fluid">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>-->
-
                         </div>
                     </div> 
                 </div>
             </div>
         </section> 
+
         {% include 'core/footer.html' %}
         
     
