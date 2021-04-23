@@ -362,8 +362,21 @@ a:focus {
   margin-left: 15px;
 }
 
-.btn.btn-border {
-  background-color: transparent;
+.btn.btn-outline-customsuccess {
+  border: 1px solid #0bceaf;
+  color: #0bceaf;
+}
+
+.add_blog {
+  font-size: large;
+  width: 100%;
+  padding: 0 25px;
+}
+
+.switch-blog {
+  background-color: #ebeef2;
+  padding: 10px 0;
+  /* margin: 20px 0; */
 }
 
 .btn.white-btn-border {
@@ -599,6 +612,11 @@ ul li {
 .section-separator {
   padding: 60px 0;
   padding-top: 150px;
+}
+
+.section-separator-blog {
+  padding: 25px 0;
+  padding-top: 100px;
 }
 
 .home-section-separator {
@@ -3616,5 +3634,9 @@ BLOG Pagination
 
 #id_message {
     height: 200px;
+}
+
+hr {
+  border: 5px solid green;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -37,49 +37,18 @@
         <div class="section-separator-blog">
             <div class="switch-blog">
                 <a class="add_blog" href="{% url 'blog_home' %}">blog home</a>
+                <h4 class="add_blog mt-2 mb-2">you are attempting to delete: 
+                    <h3 class="add_blog">{{ post.title }}</h3> 
+                </h4>
             </div>
-        </div>
-    </section>
-    <section class="mh-blog">
-        <div class="container">
-            <div class="row section-separator-blog">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form method="POST" action="">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button class="btn btn-fill">submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+            <form method="POST" action="" class="mt-5">
+                {% csrf_token %}
+                <button class="btn btn-fill mr-5">confirm</button>
+                <button class="btn btn-secondary">cancel</button>
+            </form>
         </div>
     </section>
 
-
-    <footer class="mh-footer mh-footer-3">
-        <div class="container-fluid">
-            <div class="row section-separator">
-                
-                <div class="map-image image-bg col-sm-12">
-                    <div class="container mt-30">
-                        <div class="row">
-                            
-                            
-                            <div class="col-sm-12">
-                                <div class="mh-copyright text-center">
-                                    <p>kafui k. ahedor @ 2021</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 
 

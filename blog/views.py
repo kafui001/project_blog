@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.urls import reverse
-from django.views.generic import ListView, CreateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, CreateView, DetailView, DeleteView
 
 
 from .models import Post, Category
@@ -34,3 +34,21 @@ class BlogAddView(CreateView):
         form.author = self.request.user
         form.save()
         return super(BlogAddView, self).form_valid(form)
+
+
+class BlogSingleView(DetailView):
+    model = Post
+    template_name = 'blog/blog_detail.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(BlogHomeView, self).get_context_data(**kwargs)
+    #     context['category'] = Category.objects.all()
+    #     context['form'] = ContactForm
+    #     return context 
+
+
+class blogDeleteView(DeleteView):
+    model = Post
+    template_name = 'blog/blog_delete.html'
+    success_url = reverse_lazy('blog_home')
+

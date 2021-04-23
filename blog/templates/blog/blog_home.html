@@ -35,7 +35,7 @@
             <div class="container">
                 <div class="row">
                     <nav class="navbar navbar-expand-lg mh-nav nav-btn">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="{% url 'blog_home' %}">
                             <h2>web<span style="text-transform:uppercase;color:#0bceaf;">dairies</span></h2>
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -61,10 +61,16 @@
                 </div>
             </div>
         </section>
-        
+        <section class="container">
+            <div class="section-separator-blog">
+                <div class="switch-blog">
+                    <a class="add_blog" href="{% url 'add_blog' %}">+ create a blog</a>
+                </div>
+            </div>
+        </section>
         <section class="mh-blog">
             <div class="container">
-                <div class="row section-separator">
+                <div class="row section-separator-blog">
                     <div class="col-md-8">
                         <div class="row">
 
@@ -82,7 +88,7 @@
                                             </ul>
                                         </div>
                                         <p>{{ post.content|slice:":150" }}</p>
-                                        <a href="">Read More</a>
+                                        <a href="{% url 'detail_blog' post.pk %}">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -95,21 +101,21 @@
                                         {% if is_paginated %}
 
                                             {% if page_obj.has_previous %}
-                                                <li><a href="?page=1">&laquo; first</a></li>
-                                                <li><a href="?page={{ page_obj.previous_page_number }}">previous</a></li>
+                                                <li><a class="btn btn-outline-customsuccess" href="?page=1">&laquo; first</a></li>
+                                                <li><a class="btn btn-outline-customsuccess" href="?page={{ page_obj.previous_page_number }}">previous</a></li>
                                             {% endif %}
                                         
                                             {% for num in page_obj.paginator.page_range %}
                                                 {% if page_obj.number == num %}
-                                                    <li><a href="?page={{ num }}">{{ num }}</a></li>
+                                                    <li><a class="btn btn-fill" href="?page={{ num }}">{{ num }}</a></li>
                                                 {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'%} 
-                                                    <li><a href="?page={{ num }}">{{ num}}</a></li>
+                                                    <li><a class="btn btn-outline-customsuccess" href="?page={{ num }}">{{ num}}</a></li>
                                                 {% endif %}
                                             {% endfor %}
                                         
                                                 {% if page_obj.has_next %}
-                                                    <li><a href="?page={{ page_obj.next_page_number }}">next</a></li>
-                                                    <li><a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+                                                    <li><a class="btn btn-outline-customsuccess" href="?page={{ page_obj.next_page_number }}">next</a></li>
+                                                    <li><a class="btn btn-outline-customsuccess" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
                                                 {% endif %}
 
                                         {% endif %}
