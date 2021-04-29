@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView, CreateView, DetailView, DeleteView
+from django.views.generic import (
+        ListView, CreateView, DetailView, DeleteView, UpdateView
+    )
 
 
 from .models import Post, Category
@@ -12,7 +14,7 @@ class BlogHomeView(ListView):
     model = Post
     template_name = 'blog/blog_home.html'
     ordering = ['-date_created']
-    paginate_by = 4
+    paginate_by = 2
 
     def get_context_data(self, **kwargs):
         context = super(BlogHomeView, self).get_context_data(**kwargs)
@@ -47,8 +49,15 @@ class BlogSingleView(DetailView):
     #     return context 
 
 
-class blogDeleteView(DeleteView):
+class BlogDeleteView(DeleteView):
     model = Post
     template_name = 'blog/blog_delete.html'
     success_url = reverse_lazy('blog_home')
+
+
+class BlogEditView(UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'blog/blog_edit.html'
+    success_url = reverse_lazy('detail_blog')
 

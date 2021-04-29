@@ -367,17 +367,23 @@ a:focus {
   color: #0bceaf;
 }
 
-.add_blog {
-  font-size: large;
+/* .add_blog {
+  font-size: 1.5em;
   width: 100%;
   padding: 0 25px;
 }
 
-.switch-blog {
+.delete-blog {
+  float: right;
+  font-size: 1.5em;
+  width: 100%;
+  padding: 0 25px;
+} */
+
+/* .switch-blog {
   background-color: #ebeef2;
   padding: 10px 0;
-  /* margin: 20px 0; */
-}
+} */
 
 .btn.white-btn-border {
   background-color: transparent;
@@ -611,12 +617,12 @@ ul li {
 
 .section-separator {
   padding: 60px 0;
-  padding-top: 150px;
+  padding-top: 50px;
 }
 
 .section-separator-blog {
-  padding: 25px 0;
-  padding-top: 100px;
+  padding: 35px 0;
+  padding-top: 50px;
 }
 
 .home-section-separator {

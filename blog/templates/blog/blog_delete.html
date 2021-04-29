@@ -35,16 +35,16 @@
     {% include "blog/blog_nav.html" %}
     <section class="container">
         <div class="section-separator-blog">
-            <div class="switch-blog">
-                <a class="add_blog" href="{% url 'blog_home' %}">blog home</a>
-                <h4 class="add_blog mt-2 mb-2">you are attempting to delete: 
-                    <h3 class="add_blog">{{ post.title }}</h3> 
+            <div class="bg-secondary py-3">
+                <a class="h5 text-white px-3" href="{% url 'blog_home' %}">blog home</a>
+                <h4 class="h4 text-white center mt-2 mb-2">you are attempting to delete: 
+                    <h3 class="h4 text-dark center">{{ post.title }}</h3> 
                 </h4>
             </div>
             <form method="POST" action="" class="mt-5">
                 {% csrf_token %}
                 <button class="btn btn-fill mr-5">confirm</button>
-                <button class="btn btn-secondary">cancel</button>
+                <a href="{% url 'blog_home' %}" class="btn btn-secondary">cancel</a>
             </form>
         </div>
     </section>

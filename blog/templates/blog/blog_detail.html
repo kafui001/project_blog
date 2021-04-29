@@ -33,9 +33,14 @@
         {% include "blog/blog_nav.html" %}
         <section class="container">
             <div class="section-separator-blog">
-                <div class="switch-blog">
+                <!-- <div class="switch-blog">
                     <a class="add_blog" href="{% url 'blog_home' %}">blog home</a>
-                    <a style="float:right" href="{% url 'delete_blog' post.pk %}">delete</a>
+                    <a class="float-right" href="{% url 'delete_blog' post.pk %}">delete</a>
+                </div> -->
+                <div class="bg-secondary py-3">
+                    <a class="h5 text-white px-3" href="{% url 'blog_home' %}">blog home</a>
+                    <a class="h5 float-right text-white px-3" href="{% url 'edit_blog' post.pk %}">edit</a>
+                    <a class="h5 float-right text-white px-3" href="{% url 'delete_blog' post.pk %}">delete</a>
                 </div>
             </div>
         </section>
