@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import FormView, CreateView
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.urls import reverse_lazy
 
 from .forms import ContactForm
@@ -26,7 +26,7 @@ class UserSignupView(CreateView):
     success_url = reverse_lazy('blog_home')
 
 
-class Login(FormView):
+class UserLogin(FormView):
     template_name = "core/login.html"
     form_class = AuthenticationForm
     success_url = reverse_lazy('home')
@@ -40,3 +40,10 @@ class Login(FormView):
             return redirect(self.get_success_url())
         else:
             return self.form_invalid(form)
+
+class UserLogout(FormView):
+
+    def get(self, request, *args, **kwargs):
+        logout(request)
+
+        return redirect("blog_home")
