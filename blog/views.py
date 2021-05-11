@@ -5,8 +5,8 @@ from django.views.generic import (
     )
 
 
-from .models import Post, Category
-from .forms import PostForm
+from .models import Post, Category, Comment
+from .forms import PostForm, CommentForm
 from core.forms import ContactForm
 
 
@@ -40,13 +40,14 @@ class BlogAddView(CreateView):
 
 class BlogSingleView(DetailView):
     model = Post
+    context_object_name = 'post'
     template_name = 'blog/blog_detail.html'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(BlogHomeView, self).get_context_data(**kwargs)
-    #     context['category'] = Category.objects.all()
-    #     context['form'] = ContactForm
-    #     return context 
+    def get_context_data(self, **kwargs):
+        context = super(BlogSingleView, self).get_context_data(**kwargs)
+        context['category'] = Category.objects.all()
+        context['comment_form'] = CommentForm
+        return context 
 
 
 class BlogDeleteView(DeleteView):

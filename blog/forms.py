@@ -1,6 +1,7 @@
 from django import forms
 
-from .models import Post, Category
+from .models import Post, Category, Comment
+from mptt.forms import TreeNodeChoiceField
 
 choices = Category.objects.all().values_list('name','name')
 choice_list = []
@@ -18,4 +19,16 @@ class PostForm(forms.ModelForm):
             'category': forms.Select(choices=choice_list, attrs={'class': 'form-control'}),
             # 'category': forms.Select(choices=category_choice, attrs={'class': 'form-control'}),
             'content': forms.Textarea(attrs={'class': 'form-control'}),
+        }
+
+
+class CommentForm(forms.ModelForm):
+    parent = TreeNodeChoiceField(queryset=Comment.objects.all())
+
+    class Meta:
+        model = Comment
+        fields = ['content']
+
+        widgets = {
+            'content': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'comment'}),
         }
