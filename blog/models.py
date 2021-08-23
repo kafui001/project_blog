@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from mptt.models import MPTTModel, TreeForeignKey
+# from mptt.models import MPTTModel, TreeForeignKey
 
 
 # Create your models here.
@@ -22,15 +22,15 @@ class Post(models.Model):
     def __str__(self):
         return self.title[:30]
 
-class Comment(MPTTModel):
+class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     content = models.TextField()
-    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+    # parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     date_created = models.DateField(auto_now_add=True) 
 
-    class MPTTmeta:
-        order_insertion_by = ['date_created']
+    # class MPTTMeta:
+    #     order_insertion_by = ['date_created']
 
     def __str__(self):
         return f'comment by {self.author.username}'

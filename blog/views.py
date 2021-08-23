@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import (
-        ListView, CreateView, DetailView, DeleteView, UpdateView
+        ListView, CreateView, DetailView, DeleteView, UpdateView, FormView, View
     )
 
 
@@ -38,16 +39,24 @@ class BlogAddView(CreateView):
         return super(BlogAddView, self).form_valid(form)
 
 
-class BlogSingleView(DetailView):
-    model = Post
-    context_object_name = 'post'
-    template_name = 'blog/blog_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(BlogSingleView, self).get_context_data(**kwargs)
-        context['category'] = Category.objects.all()
-        context['comment_form'] = CommentForm
-        return context 
+class BlogSingleView(View):
+
+    def get(self, request, pk, **kwargs):
+        post = Post.objects.get(id=pk)
+        comments = Comment.objects.select_related('post').all()
+        return render(request,'blog/blog_detail.html', {'post':post, 'comment':comments,'comment_form':CommentForm}) 
+
+    def post(self, request,pk,*args, **kwargs):
+        comment_form = CommentForm(self.request.POST or None)
+        post_instance = Post.objects.get(id=pk)
+        
+        if comment_form.is_valid():
+            user_comment = comment_form.save(commit=False)
+            user_comment.author = self.request.user
+            user_comment.post = post_instance
+            user_comment.save()
+            return HttpResponseRedirect('/blog/detail/' + str(post_instance.pk))
 
 
 class BlogDeleteView(DeleteView):

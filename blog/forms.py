@@ -1,7 +1,7 @@
 from django import forms
 
 from .models import Post, Category, Comment
-from mptt.forms import TreeNodeChoiceField
+# from mptt.forms import TreeNodeChoiceField
 
 choices = Category.objects.all().values_list('name','name')
 choice_list = []
@@ -23,7 +23,7 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
-    parent = TreeNodeChoiceField(queryset=Comment.objects.all())
+    # parent = TreeNodeChoiceField(queryset=Comment.objects.all(),required=False)
 
     class Meta:
         model = Comment

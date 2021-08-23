@@ -1,6 +1,8 @@
 
 from django.urls import path
 from .views import BlogHomeView, BlogAddView, BlogSingleView, BlogDeleteView, BlogEditView
+app_name='blog'
+
 
 urlpatterns = [
     path('', BlogHomeView.as_view(), name='blog_home'),

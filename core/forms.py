@@ -20,6 +20,6 @@ class ContactForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'message': forms.Textarea(attrs={'class': 'form-control','rows':7 ,'cols':50})
+            'message': forms.Textarea(attrs={'class': 'form-control','rows':7})
         }
     
