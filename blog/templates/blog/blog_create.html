@@ -1,0 +1,123 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Maha - Personal CV/Resume Template </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="description" content="app landing page template" />
+    <meta name="keywords" content="app, landing page, bootstrap" />
+    <meta name="developer" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static '/icons/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static '/plugins/css/bootstrap.min.css' %}">
+    <!-- Animate CSS-->
+    <link rel="stylesheet" href="{% static '/plugins/css/animate.css' %}">
+    <!-- Owl Carousel CSS-->
+    <link rel="stylesheet" href="{% static '/plugins/css/owl.css' %}">
+
+
+    <!-- Custom CSS-->
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static '/css/responsive.css' %}">
+
+</head>
+
+<body class="white-vertion black-bg">
+
+    {% include "blog/blog_nav.html" %}
+    <section class="container">
+        <div class="section-separator-blog">
+            <div class="bg-secondary py-3">
+                <a class="h5 text-white px-3" href="{% url 'blog_home' %}">blog home</a>
+            </div>
+        </div>
+    </section>
+    <section class="mh-blog">
+        <div class="container">
+            <div class="row section-separator-blog">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button class="btn btn-fill mt-3">submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="mh-footer mh-footer-3">
+        <div class="container-fluid">
+            <div class="row section-separator">
+                
+                <div class="map-image image-bg col-sm-12">
+                    <div class="container mt-30">
+                        <div class="row">
+                            
+                            
+                            <div class="col-sm-12">
+                                <div class="mh-copyright text-center">
+                                    <p>kafui k. ahedor @ 2021</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!--
+    ==============
+    * JS Files *
+    ==============
+    -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <!-- jQuery -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- popper -->
+    <script src="{% static '/plugins/js/popper.min.js' %}"></script>
+    <!-- bootstrap -->
+    <script src="{% static '/plugins/js/bootstrap.min.js' %}"></script>
+    <!-- owl carousel -->
+    <script src="{% static '/plugins/js/owl.carousel.js' %}"></script>
+    <!-- validator -->
+    <script src="{% static '/plugins/js/validator.min.js' %}"></script>
+    <!-- wow -->
+    <script src="{% static '/plugins/js/wow.min.js' %}"></script>
+    <!-- mixin js-->
+    <script src="https://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js' %}"></script>
+    <!-- circle progress-->
+    <script src="{% static '/plugins/js/circle-progress.js' %}"></script>
+    <!-- jquery nav -->
+    <script src="{% static '/plugins/js/jquery.nav.js' %}"></script>
+    <!-- Fancybox js-->
+    <script src="{% static '/plugins/js/jquery.fancybox.min.js' %}"></script>
+    <!-- Map api -->
+    <!-- isotope js-->
+    <script src="{% static '/plugins/js/isotope.pkgd.js' %}"></script>
+    <script src="{% static '/plugins/js/packery-mode.pkgd.js' %}"></script>
+    <!-- Custom Scripts-->
+
+    <script src="{% static '/js/custom-scripts.js' %}"></script>
+</body>
+
+</html>
