@@ -1,19 +1,20 @@
 from django.shortcuts import render, redirect
 from django.views.generic import FormView, CreateView,View
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login, logout
+# from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+# from django.contrib.auth import login, logout
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
 
 # from .forms import ContactForm
 
-from blog.models import Post
+# from blog.models import Post
 #Create your views here.
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
-        context = {'recent_blog' : Post.objects.order_by('-date_created')[:3]}
-        return render(request,'core/home.html',context)
+        # context = {'recent_blog' : Post.objects.order_by('-date_created')[:3]}
+        # return render(request,'core/home.html',context)
+        return render(request,'core/home.html')
         
     def post(self, request, *args, **kwargs):
         if request.method == "POST":
@@ -33,7 +34,8 @@ class HomeView(View):
                 ['kafui01@yahoo.com'], # to email
             )
             return redirect('home')
-
+'''
+# BLOG FEATURES
 class UserSignupView(CreateView):
     form_class = UserCreationForm
     template_name = "core/signup.html"
@@ -61,3 +63,4 @@ class UserLogout(FormView):
         logout(request)
 
         return redirect("blog_home")
+'''
