@@ -9,7 +9,7 @@ from django.core.mail import send_mail
 
 
 from project_blog.settings import MAILGUN_API_KEY,MAILGUN_DOMAIN
-
+YOUR_DOMAIN_NAME = 'kafuisite.herokuapp.com'
 # from .forms import ContactForm
 
 # from blog.models import Post
@@ -50,10 +50,10 @@ class HomeView(View):
             #     ['kafui01@yahoo.com'], # to email
             # )
             send_email = requests.post(
-                    f"https://api.mailgun.net/v3/{MAILGUN_DOMAIN}/messages",
+                    f"https://api.mailgun.net/v3/{YOUR_DOMAIN_NAME}/messages",
                     auth=("api", MAILGUN_API_KEY),
-                    data={"from": from_email,
-                        "to": [my_email],
+                    data={"from": f"Excited User mailgun@{YOUR_DOMAIN_NAME}",
+                        "to": [my_email,f"kafui@{YOUR_DOMAIN_NAME}"],
                         "subject": f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}",
                         "text": f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}"})
             return redirect('home')
