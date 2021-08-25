@@ -1,9 +1,14 @@
+import requests
+
 from django.shortcuts import render, redirect
 from django.views.generic import FormView, CreateView,View
 # from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 # from django.contrib.auth import login, logout
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
+
+
+from project_blog.settings import MAILGUN_API_KEY,MAILGUN_DOMAIN
 
 # from .forms import ContactForm
 
@@ -15,6 +20,17 @@ class HomeView(View):
         # context = {'recent_blog' : Post.objects.order_by('-date_created')[:3]}
         # return render(request,'core/home.html',context)
         return render(request,'core/home.html')
+
+    # def send_simple_message( first_name,last_name,from_email,my_email,message,api_key, domain):
+    #     send_email = requests.post(
+    #         f"https://api.mailgun.net/v3/{domain}/messages",
+    #         auth=("api", api_key),
+    #         data={"from": from_email,
+    #             "to": [my_email],
+    #             "subject": f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}",
+    #             "text": message})
+
+    #     return send_email
         
     def post(self, request, *args, **kwargs):
         if request.method == "POST":
@@ -22,18 +38,30 @@ class HomeView(View):
             
             first_name = form['first_name']
             last_name = form['last_name']
-            email = form['email']
+            from_email = form['email']
             my_email = 'kafui01@yahoo.com'
             message = form['message']
-            subject = f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}"
-            final_message = f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {email}"
-            send_mail(
-                subject, # subject of message
-                final_message, # message
-                my_email, # from email
-                ['kafui01@yahoo.com'], # to email
-            )
+            # subject = f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}"
+            # final_message = f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {email}"
+            # send_mail(
+            #     subject, # subject of message
+            #     final_message, # message
+            #     my_email, # from email
+            #     ['kafui01@yahoo.com'], # to email
+            # )
+            send_email = requests.post(
+                    f"https://api.mailgun.net/v3/{MAILGUN_DOMAIN}/messages",
+                    auth=("api", MAILGUN_API_KEY),
+                    data={"from": from_email,
+                        "to": [my_email],
+                        "subject": f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}",
+                        "text": f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}"})
             return redirect('home')
+
+
+            
+
+
 '''
 # BLOG FEATURES
 class UserSignupView(CreateView):
