@@ -9,7 +9,6 @@ from django.core.mail import send_mail
 
 
 from project_blog.settings import MAILGUN_API_KEY,MAILGUN_DOMAIN
-YOUR_DOMAIN_NAME = 'sandbox13b85765ac5a4592b41968acd349cf33.mailgun.org'
 
 import smtplib
 
@@ -54,25 +53,25 @@ class HomeView(View):
             #     ['kafui01@yahoo.com'], # to email
             # )
             ## MAILGUN API 
-            send_email = requests.post(
-                    f"https://api.mailgun.net/v3/{MAILGUN_DOMAIN}/messages",
-                    auth=("api", MAILGUN_API_KEY),
-                    data={"from": f"Excited User mailgun@{MAILGUN_DOMAIN}",
-                        "to": [my_email,f"kafui@{MAILGUN_DOMAIN}"],
-                        "subject": f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}",
-                        "text": f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}"})
+            # send_email = requests.post(
+            #         f"https://api.mailgun.net/v3/{MAILGUN_DOMAIN}/messages",
+            #         auth=("api", MAILGUN_API_KEY),
+            #         data={"from": f"Excited User mailgun@{MAILGUN_DOMAIN}",
+            #             "to": [my_email,f"kafui@{MAILGUN_DOMAIN}"],
+            #             "subject": f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}",
+            #             "text": f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}"})
 
 
-            # msg = MIMEText(f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}"}))
-            # msg['Subject'] = f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}"
-            # msg['From']    = f"kafui@{YOUR_DOMAIN_NAME}"
-            # msg['To']      = my_email
+            msg = MIMEText(f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}")
+            msg['Subject'] = f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}"
+            msg['From']    = f"kafui@{MAILGUN_DOMAIN}"
+            msg['To']      = my_email
 
-            # s = smtplib.SMTP('smtp.mailgun.org', 587)
+            s = smtplib.SMTP('smtp.mailgun.org', 587)
 
-            # s.login('MAILGUN_SMTP_LOGIN', '3kh9umujora5')
-            # s.sendmail(msg['From'], msg['To'], msg.as_string())
-            # s.quit()
+            s.login(f'postmaster@{MAILGUN_DOMAIN}', '3kh9umujora5')
+            s.sendmail(msg['From'], msg['To'], msg.as_string())
+            s.quit()
             return redirect('home')
 
 
