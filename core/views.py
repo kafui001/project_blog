@@ -64,7 +64,7 @@ class HomeView(View):
 
             msg = MIMEText(f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}")
             msg['Subject'] = f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}"
-            msg['From']    = f"kafui@{MAILGUN_DOMAIN}"
+            msg['From']    = f"postmaster@{MAILGUN_DOMAIN}"
             msg['To']      = my_email
 
             s = smtplib.SMTP('smtp.mailgun.org', 587)
