@@ -53,25 +53,25 @@ class HomeView(View):
             #     ['kafui01@yahoo.com'], # to email
             # )
             ## MAILGUN API 
-            # send_email = requests.post(
-            #         f"https://api.mailgun.net/v3/{MAILGUN_DOMAIN}/messages",
-            #         auth=("api", MAILGUN_API_KEY),
-            #         data={"from": f"Excited User mailgun@{MAILGUN_DOMAIN}",
-            #             "to": [my_email,f"kafui@{MAILGUN_DOMAIN}"],
-            #             "subject": f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}",
-            #             "text": f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}"})
+            send_email = requests.post(
+                    f"https://api.mailgun.net/v3/{MAILGUN_DOMAIN}/messages",
+                    auth=("api", MAILGUN_API_KEY),
+                    data={"from": f"kafui@{MAILGUN_DOMAIN}",
+                        "to": [my_email,f"kafui@{MAILGUN_DOMAIN}"],
+                        "subject": f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}",
+                        "text": f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}"})
 
 
-            msg = MIMEText(f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}")
-            msg['Subject'] = f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}"
-            msg['From']    = f"postmaster@{MAILGUN_DOMAIN}"
-            msg['To']      = my_email
+            # msg = MIMEText(f"{message}\n --------\n message coming from {first_name} {last_name}\n who's email address is {from_email}")
+            # msg['Subject'] = f"MESSAGE from kafuiahedor.com: sender -- {first_name} {last_name}"
+            # msg['From']    = f"postmaster@{MAILGUN_DOMAIN}"
+            # msg['To']      = my_email
 
-            s = smtplib.SMTP('smtp.mailgun.org', 587)
+            # s = smtplib.SMTP('smtp.mailgun.org', 587)
 
-            s.login(f'postmaster@{MAILGUN_DOMAIN}', '3kh9umujora5')
-            s.sendmail(msg['From'], msg['To'], msg.as_string())
-            s.quit()
+            # s.login(f'postmaster@{MAILGUN_DOMAIN}', '3kh9umujora5')
+            # s.sendmail(msg['From'], msg['To'], msg.as_string())
+            # s.quit()
             return redirect('home')
 
 
